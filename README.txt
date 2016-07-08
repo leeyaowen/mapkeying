@@ -1,1 +1,1 @@
-這是輸入植株座標的程式，進入mapkeying/座標輸入/座標輸入/bin將Release資料夾下載後搭配PostgreSQL即可使用
+這是輸入植株座標的程式，進入'座標輸入/座標輸入/bin'將Release資料夾下載後搭配PostgreSQL即可使用
