@@ -64,6 +64,9 @@ Partial Class mapkeying
         Me.Label14 = New System.Windows.Forms.Label()
         Me.deletetag = New System.Windows.Forms.TextBox()
         Me.plotdataview = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.lockrelation = New System.Windows.Forms.Button()
+        Me.relation = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.newdtbox.SuspendLayout()
         Me.deletedtbox.SuspendLayout()
@@ -91,14 +94,14 @@ Partial Class mapkeying
         '
         'sptag
         '
-        Me.sptag.Location = New System.Drawing.Point(650, 197)
+        Me.sptag.Location = New System.Drawing.Point(644, 280)
         Me.sptag.Name = "sptag"
         Me.sptag.Size = New System.Drawing.Size(100, 22)
         Me.sptag.TabIndex = 20
         '
         'taginput
         '
-        Me.taginput.Location = New System.Drawing.Point(650, 171)
+        Me.taginput.Location = New System.Drawing.Point(644, 254)
         Me.taginput.Name = "taginput"
         Me.taginput.Size = New System.Drawing.Size(100, 23)
         Me.taginput.TabIndex = 19
@@ -107,14 +110,14 @@ Partial Class mapkeying
         '
         'y1
         '
-        Me.y1.Location = New System.Drawing.Point(695, 106)
+        Me.y1.Location = New System.Drawing.Point(689, 189)
         Me.y1.Name = "y1"
         Me.y1.Size = New System.Drawing.Size(37, 22)
         Me.y1.TabIndex = 23
         '
         'plotinput
         '
-        Me.plotinput.Location = New System.Drawing.Point(650, 57)
+        Me.plotinput.Location = New System.Drawing.Point(644, 140)
         Me.plotinput.Name = "plotinput"
         Me.plotinput.Size = New System.Drawing.Size(168, 23)
         Me.plotinput.TabIndex = 22
@@ -123,28 +126,28 @@ Partial Class mapkeying
         '
         'x1
         '
-        Me.x1.Location = New System.Drawing.Point(652, 106)
+        Me.x1.Location = New System.Drawing.Point(646, 189)
         Me.x1.Name = "x1"
         Me.x1.Size = New System.Drawing.Size(37, 22)
         Me.x1.TabIndex = 21
         '
         'y2
         '
-        Me.y2.Location = New System.Drawing.Point(781, 106)
+        Me.y2.Location = New System.Drawing.Point(775, 189)
         Me.y2.Name = "y2"
         Me.y2.Size = New System.Drawing.Size(37, 22)
         Me.y2.TabIndex = 25
         '
         'x2
         '
-        Me.x2.Location = New System.Drawing.Point(738, 106)
+        Me.x2.Location = New System.Drawing.Point(732, 189)
         Me.x2.Name = "x2"
         Me.x2.Size = New System.Drawing.Size(37, 22)
         Me.x2.TabIndex = 24
         '
         'gotoplot
         '
-        Me.gotoplot.Location = New System.Drawing.Point(652, 134)
+        Me.gotoplot.Location = New System.Drawing.Point(646, 217)
         Me.gotoplot.Name = "gotoplot"
         Me.gotoplot.Size = New System.Drawing.Size(166, 23)
         Me.gotoplot.TabIndex = 38
@@ -153,14 +156,14 @@ Partial Class mapkeying
         '
         'n
         '
-        Me.n.Location = New System.Drawing.Point(652, 32)
+        Me.n.Location = New System.Drawing.Point(646, 115)
         Me.n.Name = "n"
         Me.n.Size = New System.Drawing.Size(48, 22)
         Me.n.TabIndex = 39
         '
         'm
         '
-        Me.m.Location = New System.Drawing.Point(706, 32)
+        Me.m.Location = New System.Drawing.Point(700, 115)
         Me.m.Name = "m"
         Me.m.Size = New System.Drawing.Size(48, 22)
         Me.m.TabIndex = 40
@@ -168,7 +171,7 @@ Partial Class mapkeying
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(659, 14)
+        Me.Label2.Location = New System.Drawing.Point(653, 97)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 12)
         Me.Label2.TabIndex = 41
@@ -177,7 +180,7 @@ Partial Class mapkeying
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(713, 14)
+        Me.Label3.Location = New System.Drawing.Point(707, 97)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(41, 12)
         Me.Label3.TabIndex = 42
@@ -197,7 +200,7 @@ Partial Class mapkeying
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(652, 81)
+        Me.Label4.Location = New System.Drawing.Point(646, 164)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 22)
         Me.Label4.TabIndex = 44
@@ -206,7 +209,7 @@ Partial Class mapkeying
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(695, 81)
+        Me.Label5.Location = New System.Drawing.Point(689, 164)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(37, 22)
         Me.Label5.TabIndex = 45
@@ -215,7 +218,7 @@ Partial Class mapkeying
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(738, 81)
+        Me.Label6.Location = New System.Drawing.Point(732, 164)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(37, 22)
         Me.Label6.TabIndex = 46
@@ -224,7 +227,7 @@ Partial Class mapkeying
         '
         'Label7
         '
-        Me.Label7.Location = New System.Drawing.Point(781, 81)
+        Me.Label7.Location = New System.Drawing.Point(775, 164)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(37, 22)
         Me.Label7.TabIndex = 47
@@ -443,12 +446,40 @@ Partial Class mapkeying
         Me.plotdataview.TabIndex = 52
         Me.plotdataview.Text = "小樣方資料顯示"
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(646, 19)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(65, 12)
+        Me.Label15.TabIndex = 53
+        Me.Label15.Text = "資料表名稱"
+        '
+        'lockrelation
+        '
+        Me.lockrelation.Location = New System.Drawing.Point(648, 62)
+        Me.lockrelation.Name = "lockrelation"
+        Me.lockrelation.Size = New System.Drawing.Size(75, 23)
+        Me.lockrelation.TabIndex = 54
+        Me.lockrelation.Text = "鎖定"
+        Me.lockrelation.UseVisualStyleBackColor = True
+        '
+        'relation
+        '
+        Me.relation.Location = New System.Drawing.Point(648, 34)
+        Me.relation.Name = "relation"
+        Me.relation.Size = New System.Drawing.Size(100, 22)
+        Me.relation.TabIndex = 55
+        '
         'mapkeying
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1084, 611)
+        Me.Controls.Add(Me.relation)
+        Me.Controls.Add(Me.lockrelation)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.plotdataview)
         Me.Controls.Add(Me.deletedtbox)
         Me.Controls.Add(Me.deletedt)
@@ -527,5 +558,8 @@ Partial Class mapkeying
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents deletetag As System.Windows.Forms.TextBox
     Friend WithEvents plotdataview As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents lockrelation As System.Windows.Forms.Button
+    Friend WithEvents relation As System.Windows.Forms.TextBox
 
 End Class

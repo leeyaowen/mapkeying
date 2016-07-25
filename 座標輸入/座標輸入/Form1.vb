@@ -11,6 +11,8 @@ Public Class mapkeying
     Dim arry3 As String()
     Dim arrdbh As Decimal()
     Dim connstring As String = "Server=localhost;port=5432;Database=forest;User Id=postgres;Password=2717484"
+    Dim relationname As String
+
 
 
     Private Sub mapkeying_MouseClick(sender As Object, e As MouseEventArgs) Handles Me.MouseClick '滑鼠座標輸入
@@ -77,18 +79,18 @@ Public Class mapkeying
 
         drawmap() '執行畫格線副程式
         
-        Dim connstring As String = "Server=localhost;port=5432;Database=forest;User Id=postgres;Password=2717484"
+
         conn = New NpgsqlConnection(connstring)
         If x2.Text = "" Or y2.Text = "" Then
             Exit Sub
         End If
-        Dim cdataadapter As New NpgsqlDataAdapter("select * from cadata where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
+        Dim cdataadapter As New NpgsqlDataAdapter("select * from plotdata where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
         Dim cmdbuild As NpgsqlCommandBuilder = New NpgsqlCommandBuilder(da)
         pdataset = New DataSet
-        cdataadapter.Fill(pdataset, "cadata")
+        cdataadapter.Fill(pdataset, "plotdata")
 
         DataGridView1.DataSource = pdataset
-        DataGridView1.DataMember = "cadata" '將資料填入顯示畫面
+        DataGridView1.DataMember = "plotdata" '將資料填入顯示畫面
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
@@ -167,11 +169,12 @@ Public Class mapkeying
         newdtbox.Enabled = True
         newx1.Focus()
 
+
         conn = New NpgsqlConnection(connstring)
         conn.Open()
         Dim newdataset = New DataSet
         Dim mysource As New AutoCompleteStringCollection
-        Dim Str As String = "select  distinct sp from plotdata"
+        Dim Str As String = "select distinct sp from plotdata"
         Dim SqlCom As New NpgsqlCommand(Str, conn)
         Dim sqlAdap As New NpgsqlDataAdapter(SqlCom)
         sqlAdap.Fill(newdataset)
@@ -294,4 +297,14 @@ Public Class mapkeying
 
     End Sub
 
+    Private Sub lockrelation_Click(sender As Object, e As EventArgs) Handles lockrelation.Click
+        If relation.Enabled = True Then
+            relationname = CStr(relation.Text)
+            relation.Enabled = False
+            lockrelation.Text = "解除鎖定"
+        Else
+            relation.Enabled = True
+            lockrelation.Text = "鎖定"
+        End If
+    End Sub
 End Class
