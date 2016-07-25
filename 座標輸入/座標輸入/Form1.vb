@@ -11,8 +11,8 @@ Public Class mapkeying
     Dim arry3 As String()
     Dim arrdbh As Decimal()
     Dim connstring As String = "Server=localhost;port=5432;Database=forest;User Id=postgres;Password=2717484"
-    Dim relationname As String
-
+    Dim relationname As String = ""
+    Dim plotsize As Integer
 
 
     Private Sub mapkeying_MouseClick(sender As Object, e As MouseEventArgs) Handles Me.MouseClick '滑鼠座標輸入
@@ -35,10 +35,10 @@ Public Class mapkeying
                 Dim tagbrush As New SolidBrush(Color.Blue)
 
 
-                Dim cdataadapter As New NpgsqlDataAdapter("select * from plotdata where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
+                Dim cdataadapter As New NpgsqlDataAdapter("select * from " & relationname & " where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
                 Dim cmdbuild As NpgsqlCommandBuilder = New NpgsqlCommandBuilder(da)
                 pdataset = New DataSet
-                cdataadapter.Fill(pdataset, "plotdata")
+                cdataadapter.Fill(pdataset, relationname)
                 arrtag = (From myRow In pdataset.Tables(0).AsEnumerable Select myRow.Field(Of String)("tag")).ToArray
                 arrx3 = (From myRow In pdataset.Tables(0).AsEnumerable Select myRow.Field(Of String)("x3")).ToArray
                 arry3 = (From myRow In pdataset.Tables(0).AsEnumerable Select myRow.Field(Of String)("y3")).ToArray
@@ -53,12 +53,24 @@ Public Class mapkeying
                     g.DrawEllipse(bluepen, rect)
                     g.DrawString(maptag, tagfont, tagbrush, tagpoint)
 
-                    Dim commandx3 As NpgsqlCommand = New NpgsqlCommand("update plotdata set x3 = " & CInt(xlab.Text) & " where tag = '" & CStr(sptag.Text) & "'", conn)
-                    Dim commandy3 As NpgsqlCommand = New NpgsqlCommand("update plotdata set y3 = " & CInt(ylab.Text) & " where tag = '" & CStr(sptag.Text) & "'", conn)
-
-                    commandx3.ExecuteNonQuery()
-                    commandy3.ExecuteNonQuery()
-                    '執行SQL指令
+                    Select plotsize
+                        Case 1
+                            Dim commandx3 As NpgsqlCommand = New NpgsqlCommand("update " & relationname & " set x3 = " & CInt(xlab.Text) / 5 & " where tag = '" & CStr(sptag.Text) & "'", conn)
+                            Dim commandy3 As NpgsqlCommand = New NpgsqlCommand("update " & relationname & " set y3 = " & CInt(ylab.Text) / 5 & " where tag = '" & CStr(sptag.Text) & "'", conn)
+                            commandx3.ExecuteNonQuery()
+                            commandy3.ExecuteNonQuery()
+                            '執行SQL指令
+                        Case 10
+                            Dim commandx3 As NpgsqlCommand = New NpgsqlCommand("update " & relationname & " set x3 = " & CInt(xlab.Text) & " where tag = '" & CStr(sptag.Text) & "'", conn)
+                            Dim commandy3 As NpgsqlCommand = New NpgsqlCommand("update " & relationname & " set y3 = " & CInt(ylab.Text) & " where tag = '" & CStr(sptag.Text) & "'", conn)
+                            commandx3.ExecuteNonQuery()
+                            commandy3.ExecuteNonQuery()
+                        Case 20
+                            Dim commandx3 As NpgsqlCommand = New NpgsqlCommand("update " & relationname & " set x3 = " & CInt(xlab.Text) * 2 & " where tag = '" & CStr(sptag.Text) & "'", conn)
+                            Dim commandy3 As NpgsqlCommand = New NpgsqlCommand("update " & relationname & " set y3 = " & CInt(ylab.Text) * 2 & " where tag = '" & CStr(sptag.Text) & "'", conn)
+                            commandx3.ExecuteNonQuery()
+                            commandy3.ExecuteNonQuery()
+                    End Select
 
                     conn.Close() '關閉資料庫
                 Else
@@ -79,26 +91,32 @@ Public Class mapkeying
 
         drawmap() '執行畫格線副程式
         
-
-        conn = New NpgsqlConnection(connstring)
-        If x2.Text = "" Or y2.Text = "" Then
+        If relationname = "" Then
             Exit Sub
         End If
-        Dim cdataadapter As New NpgsqlDataAdapter("select * from plotdata where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
-        Dim cmdbuild As NpgsqlCommandBuilder = New NpgsqlCommandBuilder(da)
-        pdataset = New DataSet
-        cdataadapter.Fill(pdataset, "plotdata")
+        Try
+            conn = New NpgsqlConnection(connstring)
+            If x2.Text = "" Or y2.Text = "" Then
+                Exit Sub
+            End If
+            Dim cdataadapter As New NpgsqlDataAdapter("select * from " & relationname & " where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
+            Dim cmdbuild As NpgsqlCommandBuilder = New NpgsqlCommandBuilder(da)
+            pdataset = New DataSet
+            cdataadapter.Fill(pdataset, relationname)
 
-        DataGridView1.DataSource = pdataset
-        DataGridView1.DataMember = "plotdata" '將資料填入顯示畫面
-        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+            DataGridView1.DataSource = pdataset
+            DataGridView1.DataMember = relationname '將資料填入顯示畫面
+            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+            DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
-        conn.Open() '打開資料庫
+            conn.Open() '打開資料庫
 
-        drawspot() '執行畫點副程式
+            drawspot() '執行畫點副程式
 
-        conn.Close() '關閉資料庫
+            conn.Close() '關閉資料庫
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
     Public Sub drawmap() '劃格線
@@ -174,7 +192,7 @@ Public Class mapkeying
         conn.Open()
         Dim newdataset = New DataSet
         Dim mysource As New AutoCompleteStringCollection
-        Dim Str As String = "select distinct sp from plotdata"
+        Dim Str As String = "select distinct sp from " & relationname
         Dim SqlCom As New NpgsqlCommand(Str, conn)
         Dim sqlAdap As New NpgsqlDataAdapter(SqlCom)
         sqlAdap.Fill(newdataset)
@@ -191,8 +209,8 @@ Public Class mapkeying
     Private Sub mapkeying_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(50, 50) '設定程式起始位置
         Me.Show()
-        n.Focus()
-       
+        relation.Focus()
+
     End Sub
 
     Private Sub deletedt_Click(sender As Object, e As EventArgs) Handles deletedt.Click
@@ -207,17 +225,16 @@ Public Class mapkeying
 
         drawmap()  '執行畫格線副程式
 
-        Dim connstring As String = "Server=localhost;port=5432;Database=forest;User Id=postgres;Password=2717484"
         conn = New NpgsqlConnection(connstring)
         If x2.Text = "" Or y2.Text = "" Then
             Exit Sub '缺東缺西先驅逐
         End If
-        Dim cdataadapter As New NpgsqlDataAdapter("select * from plotdata where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
+        Dim cdataadapter As New NpgsqlDataAdapter("select * from " & relationname & " where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
         Dim cmdbuild As NpgsqlCommandBuilder = New NpgsqlCommandBuilder(da)
         Dim pdataset As DataSet
         pdataset = New DataSet
 
-        cdataadapter.Fill(pdataset, "plotdata")
+        cdataadapter.Fill(pdataset, relationname)
 
         conn.Open()
 
@@ -239,7 +256,7 @@ Public Class mapkeying
             Try
                 Dim newcmd As New NpgsqlCommand
                 newcmd.CommandType = System.Data.CommandType.Text
-                newcmd.CommandText = "insert into plotdata(x1,y1,x2,y2,tag,sp,dbh) values ('" & newx1.Text & "','" & newy1.Text & "','" & newx2.Text & "','" & newy2.Text & "','" & newtag.Text & "','" & newsp.Text & "','" & Val(newdbh.Text) & "')"
+                newcmd.CommandText = "insert into " & relationname & "(x1,y1,x2,y2,tag,sp,dbh) values ('" & newx1.Text & "','" & newy1.Text & "','" & newx2.Text & "','" & newy2.Text & "','" & newtag.Text & "','" & newsp.Text & "','" & Val(newdbh.Text) & "')"
                 newcmd.Connection = conn
                 newcmd.ExecuteNonQuery() '新增植株SQL
 
@@ -266,17 +283,17 @@ Public Class mapkeying
         deletetag.Focus()
         conn.Open()
         If x1.Text <> "" And y1.Text <> "" And x2.Text <> "" And y2.Text <> "" And deletetag.Text <> "" Then '限制於小樣方中執行刪除動作，增加刪除資料不方便性與困難度
-            Dim cdataadapter As New NpgsqlDataAdapter("select * from plotdata where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
+            Dim cdataadapter As New NpgsqlDataAdapter("select * from " & relationname & " where x1 = '" & CStr(x1.Text) & "' and y1 = '" & CStr(y1.Text) & "' and x2 = '" & CInt(x2.Text) & "' and y2 = '" & CInt(y2.Text) & "'", conn)
             Dim cmdbuild As NpgsqlCommandBuilder = New NpgsqlCommandBuilder(da)
             pdataset = New DataSet
-            cdataadapter.Fill(pdataset, "plotdata")
+            cdataadapter.Fill(pdataset, relationname)
             arrtag = (From myRow In pdataset.Tables(0).AsEnumerable Select myRow.Field(Of String)("tag")).ToArray
 
             Dim result As Integer = Array.IndexOf(arrtag, deletetag.Text)
             If result > 0 Then
                 Dim deletecmd As New NpgsqlCommand
                 deletecmd.CommandType = System.Data.CommandType.Text
-                deletecmd.CommandText = "delete from plotdata where tag = ('" & deletetag.Text & "');"
+                deletecmd.CommandText = "delete from " & relationname & " where tag = ('" & deletetag.Text & "');"
                 deletecmd.Connection = conn
 
                 deletecmd.ExecuteNonQuery() '刪除植株
@@ -306,5 +323,17 @@ Public Class mapkeying
             relation.Enabled = True
             lockrelation.Text = "鎖定"
         End If
+    End Sub
+
+    Private Sub size1_CheckedChanged(sender As Object, e As EventArgs) Handles size1.CheckedChanged
+        plotsize = 1
+    End Sub
+
+    Private Sub size10_CheckedChanged(sender As Object, e As EventArgs) Handles size10.CheckedChanged
+        plotsize = 10
+    End Sub
+
+    Private Sub size20_CheckedChanged(sender As Object, e As EventArgs) Handles size20.CheckedChanged
+        plotsize = 20
     End Sub
 End Class
