@@ -172,13 +172,33 @@ Public Class mapkeying
 
         Dim tagbrush As New SolidBrush(Color.Blue) '設定tag字體顏色
 
-        For i = 0 To arrtag.Count - 1
-            Dim rect As New Rectangle(CInt(arrx3(i)) + 50, 500 - CInt(arry3(i)) + 50, 3, 3) '設定點的位置與大小
-            Dim tagpoint As New Point(CInt(arrx3(i)) + 50, 500 - CInt(arry3(i)) + 50)
-            maptag = arrtag(i)
-            g.DrawEllipse(bluepen, rect)
-            g.DrawString(maptag, tagfont, tagbrush, tagpoint)
-        Next
+        Select Case plotsize
+            Case 1
+                For i = 0 To arrtag.Count - 1
+                    Dim rect As New Rectangle(CInt(arrx3(i)) * 5 + 50, 500 - CInt(arry3(i)) * 5 + 50, 3, 3) '設定點的位置與大小
+                    Dim tagpoint As New Point(CInt(arrx3(i)) * 5 + 50, 500 - CInt(arry3(i)) * 5 + 50)
+                    maptag = arrtag(i)
+                    g.DrawEllipse(bluepen, rect)
+                    g.DrawString(maptag, tagfont, tagbrush, tagpoint)
+                Next
+            Case 10
+                For i = 0 To arrtag.Count - 1
+                    Dim rect As New Rectangle(CInt(arrx3(i)) + 50, 500 - CInt(arry3(i)) + 50, 3, 3) '設定點的位置與大小
+                    Dim tagpoint As New Point(CInt(arrx3(i)) + 50, 500 - CInt(arry3(i)) + 50)
+                    maptag = arrtag(i)
+                    g.DrawEllipse(bluepen, rect)
+                    g.DrawString(maptag, tagfont, tagbrush, tagpoint)
+                Next
+            Case 20
+                For i = 0 To arrtag.Count - 1
+                    Dim rect As New Rectangle(CInt(arrx3(i)) / 2 + 50, 500 - CInt(arry3(i)) / 2 + 50, 3, 3) '設定點的位置與大小
+                    Dim tagpoint As New Point(CInt(arrx3(i)) / 2 + 50, 500 - CInt(arry3(i)) / 2 + 50)
+                    maptag = arrtag(i)
+                    g.DrawEllipse(bluepen, rect)
+                    g.DrawString(maptag, tagfont, tagbrush, tagpoint)
+                Next
+        End Select
+
 
 
     End Sub
