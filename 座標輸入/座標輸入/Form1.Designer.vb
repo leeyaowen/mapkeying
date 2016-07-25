@@ -483,7 +483,7 @@ Partial Class mapkeying
         Me.plotsizebox.Controls.Add(Me.size1)
         Me.plotsizebox.Location = New System.Drawing.Point(600, 87)
         Me.plotsizebox.Name = "plotsizebox"
-        Me.plotsizebox.Size = New System.Drawing.Size(121, 88)
+        Me.plotsizebox.Size = New System.Drawing.Size(152, 88)
         Me.plotsizebox.TabIndex = 56
         Me.plotsizebox.TabStop = False
         Me.plotsizebox.Text = "選擇輸入區域大小(m)"
