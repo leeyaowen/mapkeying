@@ -80,7 +80,7 @@ Partial Class mapkeying
         'xlab
         '
         Me.xlab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.xlab.Location = New System.Drawing.Point(966, 579)
+        Me.xlab.Location = New System.Drawing.Point(1066, 579)
         Me.xlab.Name = "xlab"
         Me.xlab.Size = New System.Drawing.Size(50, 23)
         Me.xlab.TabIndex = 0
@@ -90,7 +90,7 @@ Partial Class mapkeying
         'ylab
         '
         Me.ylab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ylab.Location = New System.Drawing.Point(1022, 579)
+        Me.ylab.Location = New System.Drawing.Point(1122, 579)
         Me.ylab.Name = "ylab"
         Me.ylab.Size = New System.Drawing.Size(50, 23)
         Me.ylab.TabIndex = 1
@@ -99,14 +99,14 @@ Partial Class mapkeying
         '
         'sptag
         '
-        Me.sptag.Location = New System.Drawing.Point(600, 364)
+        Me.sptag.Location = New System.Drawing.Point(700, 367)
         Me.sptag.Name = "sptag"
         Me.sptag.Size = New System.Drawing.Size(100, 22)
         Me.sptag.TabIndex = 20
         '
         'taginput
         '
-        Me.taginput.Location = New System.Drawing.Point(600, 338)
+        Me.taginput.Location = New System.Drawing.Point(700, 341)
         Me.taginput.Name = "taginput"
         Me.taginput.Size = New System.Drawing.Size(100, 23)
         Me.taginput.TabIndex = 19
@@ -115,14 +115,14 @@ Partial Class mapkeying
         '
         'y1
         '
-        Me.y1.Location = New System.Drawing.Point(645, 273)
+        Me.y1.Location = New System.Drawing.Point(745, 276)
         Me.y1.Name = "y1"
         Me.y1.Size = New System.Drawing.Size(37, 22)
         Me.y1.TabIndex = 23
         '
         'plotinput
         '
-        Me.plotinput.Location = New System.Drawing.Point(600, 224)
+        Me.plotinput.Location = New System.Drawing.Point(700, 227)
         Me.plotinput.Name = "plotinput"
         Me.plotinput.Size = New System.Drawing.Size(168, 23)
         Me.plotinput.TabIndex = 22
@@ -131,28 +131,28 @@ Partial Class mapkeying
         '
         'x1
         '
-        Me.x1.Location = New System.Drawing.Point(602, 273)
+        Me.x1.Location = New System.Drawing.Point(702, 276)
         Me.x1.Name = "x1"
         Me.x1.Size = New System.Drawing.Size(37, 22)
         Me.x1.TabIndex = 21
         '
         'y2
         '
-        Me.y2.Location = New System.Drawing.Point(731, 273)
+        Me.y2.Location = New System.Drawing.Point(831, 276)
         Me.y2.Name = "y2"
         Me.y2.Size = New System.Drawing.Size(37, 22)
         Me.y2.TabIndex = 25
         '
         'x2
         '
-        Me.x2.Location = New System.Drawing.Point(688, 273)
+        Me.x2.Location = New System.Drawing.Point(788, 276)
         Me.x2.Name = "x2"
         Me.x2.Size = New System.Drawing.Size(37, 22)
         Me.x2.TabIndex = 24
         '
         'gotoplot
         '
-        Me.gotoplot.Location = New System.Drawing.Point(602, 301)
+        Me.gotoplot.Location = New System.Drawing.Point(702, 304)
         Me.gotoplot.Name = "gotoplot"
         Me.gotoplot.Size = New System.Drawing.Size(166, 23)
         Me.gotoplot.TabIndex = 38
@@ -161,14 +161,14 @@ Partial Class mapkeying
         '
         'n
         '
-        Me.n.Location = New System.Drawing.Point(602, 199)
+        Me.n.Location = New System.Drawing.Point(702, 202)
         Me.n.Name = "n"
         Me.n.Size = New System.Drawing.Size(48, 22)
         Me.n.TabIndex = 39
         '
         'm
         '
-        Me.m.Location = New System.Drawing.Point(656, 199)
+        Me.m.Location = New System.Drawing.Point(756, 202)
         Me.m.Name = "m"
         Me.m.Size = New System.Drawing.Size(48, 22)
         Me.m.TabIndex = 40
@@ -176,7 +176,7 @@ Partial Class mapkeying
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(609, 181)
+        Me.Label2.Location = New System.Drawing.Point(709, 184)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(41, 12)
         Me.Label2.TabIndex = 41
@@ -185,7 +185,7 @@ Partial Class mapkeying
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(663, 181)
+        Me.Label3.Location = New System.Drawing.Point(763, 184)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(41, 12)
         Me.Label3.TabIndex = 42
@@ -197,7 +197,7 @@ Partial Class mapkeying
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DataGridView1.Location = New System.Drawing.Point(600, 460)
+        Me.DataGridView1.Location = New System.Drawing.Point(700, 460)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(472, 107)
@@ -205,7 +205,7 @@ Partial Class mapkeying
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(602, 248)
+        Me.Label4.Location = New System.Drawing.Point(702, 251)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 22)
         Me.Label4.TabIndex = 44
@@ -214,7 +214,7 @@ Partial Class mapkeying
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(645, 248)
+        Me.Label5.Location = New System.Drawing.Point(745, 251)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(37, 22)
         Me.Label5.TabIndex = 45
@@ -223,7 +223,7 @@ Partial Class mapkeying
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(688, 248)
+        Me.Label6.Location = New System.Drawing.Point(788, 251)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(37, 22)
         Me.Label6.TabIndex = 46
@@ -232,7 +232,7 @@ Partial Class mapkeying
         '
         'Label7
         '
-        Me.Label7.Location = New System.Drawing.Point(731, 248)
+        Me.Label7.Location = New System.Drawing.Point(831, 251)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(37, 22)
         Me.Label7.TabIndex = 47
@@ -257,7 +257,7 @@ Partial Class mapkeying
         Me.newdtbox.Controls.Add(Me.newy1)
         Me.newdtbox.Controls.Add(Me.newx1)
         Me.newdtbox.Enabled = False
-        Me.newdtbox.Location = New System.Drawing.Point(824, 43)
+        Me.newdtbox.Location = New System.Drawing.Point(905, 44)
         Me.newdtbox.Name = "newdtbox"
         Me.newdtbox.Size = New System.Drawing.Size(192, 254)
         Me.newdtbox.TabIndex = 48
@@ -388,7 +388,7 @@ Partial Class mapkeying
         '
         'newdt
         '
-        Me.newdt.Location = New System.Drawing.Point(824, 14)
+        Me.newdt.Location = New System.Drawing.Point(905, 15)
         Me.newdt.Name = "newdt"
         Me.newdt.Size = New System.Drawing.Size(75, 23)
         Me.newdt.TabIndex = 49
@@ -397,7 +397,7 @@ Partial Class mapkeying
         '
         'deletedt
         '
-        Me.deletedt.Location = New System.Drawing.Point(824, 303)
+        Me.deletedt.Location = New System.Drawing.Point(905, 304)
         Me.deletedt.Name = "deletedt"
         Me.deletedt.Size = New System.Drawing.Size(75, 23)
         Me.deletedt.TabIndex = 50
@@ -410,7 +410,7 @@ Partial Class mapkeying
         Me.deletedtbox.Controls.Add(Me.Label14)
         Me.deletedtbox.Controls.Add(Me.deletetag)
         Me.deletedtbox.Enabled = False
-        Me.deletedtbox.Location = New System.Drawing.Point(824, 332)
+        Me.deletedtbox.Location = New System.Drawing.Point(905, 333)
         Me.deletedtbox.Name = "deletedtbox"
         Me.deletedtbox.Size = New System.Drawing.Size(192, 88)
         Me.deletedtbox.TabIndex = 51
@@ -445,7 +445,7 @@ Partial Class mapkeying
         'plotdataview
         '
         Me.plotdataview.AutoSize = True
-        Me.plotdataview.Location = New System.Drawing.Point(598, 445)
+        Me.plotdataview.Location = New System.Drawing.Point(698, 445)
         Me.plotdataview.Name = "plotdataview"
         Me.plotdataview.Size = New System.Drawing.Size(89, 12)
         Me.plotdataview.TabIndex = 52
@@ -454,7 +454,7 @@ Partial Class mapkeying
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(598, 14)
+        Me.Label15.Location = New System.Drawing.Point(702, 17)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(65, 12)
         Me.Label15.TabIndex = 53
@@ -462,7 +462,7 @@ Partial Class mapkeying
         '
         'lockrelation
         '
-        Me.lockrelation.Location = New System.Drawing.Point(600, 57)
+        Me.lockrelation.Location = New System.Drawing.Point(806, 32)
         Me.lockrelation.Name = "lockrelation"
         Me.lockrelation.Size = New System.Drawing.Size(75, 23)
         Me.lockrelation.TabIndex = 54
@@ -471,7 +471,7 @@ Partial Class mapkeying
         '
         'relation
         '
-        Me.relation.Location = New System.Drawing.Point(600, 29)
+        Me.relation.Location = New System.Drawing.Point(700, 32)
         Me.relation.Name = "relation"
         Me.relation.Size = New System.Drawing.Size(100, 22)
         Me.relation.TabIndex = 55
@@ -481,7 +481,7 @@ Partial Class mapkeying
         Me.plotsizebox.Controls.Add(Me.size20)
         Me.plotsizebox.Controls.Add(Me.size10)
         Me.plotsizebox.Controls.Add(Me.size1)
-        Me.plotsizebox.Location = New System.Drawing.Point(600, 87)
+        Me.plotsizebox.Location = New System.Drawing.Point(700, 90)
         Me.plotsizebox.Name = "plotsizebox"
         Me.plotsizebox.Size = New System.Drawing.Size(152, 88)
         Me.plotsizebox.TabIndex = 56
@@ -526,7 +526,7 @@ Partial Class mapkeying
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1084, 611)
+        Me.ClientSize = New System.Drawing.Size(1184, 611)
         Me.Controls.Add(Me.plotsizebox)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.relation)
