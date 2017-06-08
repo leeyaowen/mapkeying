@@ -71,6 +71,9 @@ Partial Class mapkeying
         Me.size20 = New System.Windows.Forms.RadioButton()
         Me.size10 = New System.Windows.Forms.RadioButton()
         Me.size1 = New System.Windows.Forms.RadioButton()
+        Me.savefig = New System.Windows.Forms.Button()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.dbname = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.newdtbox.SuspendLayout()
         Me.deletedtbox.SuspendLayout()
@@ -454,7 +457,7 @@ Partial Class mapkeying
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(702, 17)
+        Me.Label15.Location = New System.Drawing.Point(702, 44)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(65, 12)
         Me.Label15.TabIndex = 53
@@ -462,7 +465,7 @@ Partial Class mapkeying
         '
         'lockrelation
         '
-        Me.lockrelation.Location = New System.Drawing.Point(806, 32)
+        Me.lockrelation.Location = New System.Drawing.Point(806, 59)
         Me.lockrelation.Name = "lockrelation"
         Me.lockrelation.Size = New System.Drawing.Size(75, 23)
         Me.lockrelation.TabIndex = 54
@@ -471,7 +474,7 @@ Partial Class mapkeying
         '
         'relation
         '
-        Me.relation.Location = New System.Drawing.Point(700, 32)
+        Me.relation.Location = New System.Drawing.Point(700, 59)
         Me.relation.Name = "relation"
         Me.relation.Size = New System.Drawing.Size(100, 22)
         Me.relation.TabIndex = 55
@@ -521,12 +524,40 @@ Partial Class mapkeying
         Me.size1.Text = "1 x 1"
         Me.size1.UseVisualStyleBackColor = True
         '
+        'savefig
+        '
+        Me.savefig.Location = New System.Drawing.Point(700, 398)
+        Me.savefig.Name = "savefig"
+        Me.savefig.Size = New System.Drawing.Size(168, 23)
+        Me.savefig.TabIndex = 57
+        Me.savefig.Text = "存取畫面"
+        Me.savefig.UseVisualStyleBackColor = True
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(702, 20)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(65, 12)
+        Me.Label16.TabIndex = 58
+        Me.Label16.Text = "資料庫名稱"
+        '
+        'dbname
+        '
+        Me.dbname.Location = New System.Drawing.Point(770, 19)
+        Me.dbname.Name = "dbname"
+        Me.dbname.Size = New System.Drawing.Size(111, 22)
+        Me.dbname.TabIndex = 59
+        '
         'mapkeying
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1184, 611)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.dbname)
+        Me.Controls.Add(Me.savefig)
         Me.Controls.Add(Me.plotsizebox)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.relation)
@@ -618,5 +649,8 @@ Partial Class mapkeying
     Friend WithEvents size20 As System.Windows.Forms.RadioButton
     Friend WithEvents size10 As System.Windows.Forms.RadioButton
     Friend WithEvents size1 As System.Windows.Forms.RadioButton
+    Friend WithEvents savefig As System.Windows.Forms.Button
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents dbname As System.Windows.Forms.TextBox
 
 End Class

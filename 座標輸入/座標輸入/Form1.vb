@@ -11,6 +11,7 @@ Public Class mapkeying
     Dim arry3 As String()
     Dim arrdbh As Decimal()
     Dim connstring As String = "Server=localhost;port=5432;Database=forest;User Id=postgres;Password=2717484"
+    Dim databasename As String = ""
     Dim relationname As String = ""
     Dim plotsize As Integer
 
@@ -335,11 +336,15 @@ Public Class mapkeying
     End Sub
 
     Private Sub lockrelation_Click(sender As Object, e As EventArgs) Handles lockrelation.Click
-        If relation.Enabled = True Then
+        If relation.Enabled = True And dbname.Enabled = True Then
+            databasename = CStr(dbname.Text)
             relationname = CStr(relation.Text)
+            connstring = "Server=localhost;port=5432;Database=" & databasename & ";User Id=postgres;Password=2717484"
+            dbname.Enabled = False
             relation.Enabled = False
             lockrelation.Text = "解除鎖定"
         Else
+            dbname.Enabled = True
             relation.Enabled = True
             lockrelation.Text = "鎖定"
         End If
@@ -356,4 +361,14 @@ Public Class mapkeying
     Private Sub size20_CheckedChanged(sender As Object, e As EventArgs) Handles size20.CheckedChanged
         plotsize = 20
     End Sub
+
+    Private Function takescreenshot(ByVal control As Control) As Bitmap
+        Dim tmpImg As New Bitmap(control.Width, control.Height)
+        Using g As Graphics = Graphics.FromImage(tmpImg)
+            g.CopyFromScreen(control.PointToScreen(New Point(0, 0)), New Point(0, 0), New Size(control.Width, control.Height))
+        End Using
+        Return tmpImg
+    End Function
+
+    
 End Class
