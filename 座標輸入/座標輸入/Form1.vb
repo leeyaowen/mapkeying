@@ -205,6 +205,11 @@ Public Class mapkeying
     End Sub
 
     Private Sub newdt_Click(sender As Object, e As EventArgs) Handles newdt.Click
+        If databasename = "" Then
+            MsgBox("no database")
+            Exit Sub
+        End If
+
         newdtbox.Enabled = True
         newx1.Focus()
 
@@ -230,11 +235,15 @@ Public Class mapkeying
     Private Sub mapkeying_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(50, 50) '設定程式起始位置
         Me.Show()
-        relation.Focus()
+        dbname.Focus()
 
     End Sub
 
     Private Sub deletedt_Click(sender As Object, e As EventArgs) Handles deletedt.Click
+        If databasename = "" Then
+            MsgBox("no database")
+            Exit Sub
+        End If
         deletedtbox.Enabled = True
         deletetag.Focus()
     End Sub
@@ -370,5 +379,5 @@ Public Class mapkeying
         Return tmpImg
     End Function
 
-    
+
 End Class

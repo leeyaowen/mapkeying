@@ -121,7 +121,7 @@ Partial Class mapkeying
         Me.y1.Location = New System.Drawing.Point(745, 276)
         Me.y1.Name = "y1"
         Me.y1.Size = New System.Drawing.Size(37, 22)
-        Me.y1.TabIndex = 23
+        Me.y1.TabIndex = 12
         '
         'plotinput
         '
@@ -137,28 +137,28 @@ Partial Class mapkeying
         Me.x1.Location = New System.Drawing.Point(702, 276)
         Me.x1.Name = "x1"
         Me.x1.Size = New System.Drawing.Size(37, 22)
-        Me.x1.TabIndex = 21
+        Me.x1.TabIndex = 11
         '
         'y2
         '
         Me.y2.Location = New System.Drawing.Point(831, 276)
         Me.y2.Name = "y2"
         Me.y2.Size = New System.Drawing.Size(37, 22)
-        Me.y2.TabIndex = 25
+        Me.y2.TabIndex = 14
         '
         'x2
         '
         Me.x2.Location = New System.Drawing.Point(788, 276)
         Me.x2.Name = "x2"
         Me.x2.Size = New System.Drawing.Size(37, 22)
-        Me.x2.TabIndex = 24
+        Me.x2.TabIndex = 13
         '
         'gotoplot
         '
         Me.gotoplot.Location = New System.Drawing.Point(702, 304)
         Me.gotoplot.Name = "gotoplot"
         Me.gotoplot.Size = New System.Drawing.Size(166, 23)
-        Me.gotoplot.TabIndex = 38
+        Me.gotoplot.TabIndex = 15
         Me.gotoplot.Text = "前往 / 重新整理"
         Me.gotoplot.UseVisualStyleBackColor = True
         '
@@ -167,14 +167,14 @@ Partial Class mapkeying
         Me.n.Location = New System.Drawing.Point(702, 202)
         Me.n.Name = "n"
         Me.n.Size = New System.Drawing.Size(48, 22)
-        Me.n.TabIndex = 39
+        Me.n.TabIndex = 5
         '
         'm
         '
         Me.m.Location = New System.Drawing.Point(756, 202)
         Me.m.Name = "m"
         Me.m.Size = New System.Drawing.Size(48, 22)
-        Me.m.TabIndex = 40
+        Me.m.TabIndex = 6
         '
         'Label2
         '
@@ -443,7 +443,7 @@ Partial Class mapkeying
         Me.deletetag.Location = New System.Drawing.Point(68, 21)
         Me.deletetag.Name = "deletetag"
         Me.deletetag.Size = New System.Drawing.Size(100, 22)
-        Me.deletetag.TabIndex = 15
+        Me.deletetag.TabIndex = 14
         '
         'plotdataview
         '
@@ -468,7 +468,7 @@ Partial Class mapkeying
         Me.lockrelation.Location = New System.Drawing.Point(806, 59)
         Me.lockrelation.Name = "lockrelation"
         Me.lockrelation.Size = New System.Drawing.Size(75, 23)
-        Me.lockrelation.TabIndex = 54
+        Me.lockrelation.TabIndex = 3
         Me.lockrelation.Text = "鎖定"
         Me.lockrelation.UseVisualStyleBackColor = True
         '
@@ -477,7 +477,7 @@ Partial Class mapkeying
         Me.relation.Location = New System.Drawing.Point(700, 59)
         Me.relation.Name = "relation"
         Me.relation.Size = New System.Drawing.Size(100, 22)
-        Me.relation.TabIndex = 55
+        Me.relation.TabIndex = 2
         '
         'plotsizebox
         '
@@ -547,7 +547,7 @@ Partial Class mapkeying
         Me.dbname.Location = New System.Drawing.Point(770, 19)
         Me.dbname.Name = "dbname"
         Me.dbname.Size = New System.Drawing.Size(111, 22)
-        Me.dbname.TabIndex = 59
+        Me.dbname.TabIndex = 1
         '
         'mapkeying
         '
